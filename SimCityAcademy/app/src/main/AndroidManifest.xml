@@ -15,7 +15,7 @@
         <activity
             android:name=".home.HomeActivity"
             android:exported="true"
-            android:theme="@style/Theme.SimCityAcademy.NoActionBar" > <!-- TODO adição do tema na tela -->
+            android:theme="@style/Theme.SimCityAcademy.NoActionBar" > <!--  TODO adição do tema na tela -->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

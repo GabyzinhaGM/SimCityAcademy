@@ -15,7 +15,7 @@ class HomeActivity : AppCompatActivity() {
     private var btnCalcularMédia: Button? = null
 
     //TODO dicionar viewBinding no projeto para vincular os campos de nota três e quatro
-
+    private lateinit var binding: ActivityHomeBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -24,18 +24,31 @@ class HomeActivity : AppCompatActivity() {
 
         btnCalcularMédia?.setOnClickListener {
             //TODO alterar o código abaixo
-            startActivity(Intent(this, InformacaoActivity::class.java))
+            enviarDadosAlune()
         }
 
     }
 
-    private fun initViews(){
-        editTextNomeAlune = findViewById(R.id.etNomeAlune)
+    private fun initViews() {
+
         btnCalcularMédia = findViewById(R.id.btnCalcularMedia)
     }
 
-    private fun enviarDadosAlune(){
+    private fun enviarDadosAlune() {
         //TODO realizar a lógica para recuperar os dados
         //TODO realizar a lógica para enviar os dados
+        val nomeAlune = binding.etNomeAlune?.text
+        val primeiraNota = binding.etNotaUm?.text
+        val segundaNota = binding.etNotaDois?.text
+        val terceiraNota = binding.etNotaTres?.text
+        val quartaNota = binding.etNotaQuatro?.text
+
+        val intent = Intent(this, InformacaoActivity::class.java).apply {
+            putExtra("NOME_ALUNE", nomeAlune)
+            putExtra("NOTA_UM", primeiraNota)
+            putExtra("NOTA_DOIS", segundaNota)
+            putExtra("NOTA_TRES", terceiraNota)
+            putExtra("NOTA_QUATRO", quartaNota)
+
+        }
     }
-}
